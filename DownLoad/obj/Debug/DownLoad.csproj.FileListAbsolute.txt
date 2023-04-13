@@ -1,0 +1,8 @@
+D:\sw\Console\DownLoad\DownLoad\bin\Debug\DownLoad.exe.config
+D:\sw\Console\DownLoad\DownLoad\bin\Debug\DownLoad.exe
+D:\sw\Console\DownLoad\DownLoad\bin\Debug\DownLoad.pdb
+D:\sw\Console\DownLoad\DownLoad\obj\Debug\DownLoad.csproj.AssemblyReference.cache
+D:\sw\Console\DownLoad\DownLoad\obj\Debug\DownLoad.csproj.SuggestedBindingRedirects.cache
+D:\sw\Console\DownLoad\DownLoad\obj\Debug\DownLoad.csproj.CoreCompileInputs.cache
+D:\sw\Console\DownLoad\DownLoad\obj\Debug\DownLoad.exe
+D:\sw\Console\DownLoad\DownLoad\obj\Debug\DownLoad.pdb
