@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
@@ -23,6 +24,16 @@ namespace DownLoad
             Console.WriteLine("程序加载中...");
             Thread.Sleep(2000);
 
+
+            //下载前检测程序是否存在
+            if (IsExistDirectory(exePath + @"\" + "startTool"))
+            {
+                Directory.Delete((exePath + @"\" + "startTool"),true);
+                Thread.Sleep(1000);
+                Console.WriteLine("已删除:" + exePath + @"\" + "startTool");
+            }
+
+
             // 文件下载路径及zip文件名称
             var zipName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\" + downloadName +
                           ".zip";
@@ -30,8 +41,6 @@ namespace DownLoad
             // 定义一个字符串变量，用于存储 JSON 格式的数据
 
             var strContent = "{\"TestName\":\"" + testName + "\",\"DownloadName\":\"" + downloadName + "\"}";
-
-            Console.WriteLine("检测文件路径是否存在...");
 
             // 检查目录是否存在，如果不存在则创建目录
             Console.WriteLine("检测文件路径是否存在...");
@@ -47,14 +56,13 @@ namespace DownLoad
             if (data)
             {
                 Console.WriteLine("下载成功...");
-
                 var zipPath = new DirectoryInfo(zipName);
                 if (zipPath.Parent == null) return;
                 //上 1层目录
                 parentPath = zipPath.Parent.FullName;
 
                 // 解压文件
-                ExtractZipFile(zipName, parentPath);
+                ExtractZipFile(zipName, parentPath+@"\\startTool\");
                 Console.WriteLine("解压完成...");
 
                 if (exePath != null)
@@ -91,7 +99,9 @@ namespace DownLoad
                 Directory.Delete((parentPath + @"\" + downloadName), true);
                 Thread.Sleep(1000);
                 Console.WriteLine("已删除:" + parentPath + @"\" + downloadName);
-            }
+            }     
+            
+       
 
             Thread.Sleep(2000);
         }
@@ -103,7 +113,7 @@ namespace DownLoad
         /// <param name="extractPath">解压到指定路径</param>
         private static void ExtractZipFile(string zipFilePath, string extractPath)
         {
-           ZipFile.ExtractToDirectory(zipFilePath, extractPath,Encoding.UTF8);
+            ZipFile.ExtractToDirectory(zipFilePath, extractPath,Encoding.UTF8);
         }
 
         /// <summary>
