@@ -17,7 +17,6 @@ namespace DownLoad
             const string testName = "TestItem";
             const string downloadName = "CopyTest";
 
-
             // 获取当前程序集的执行路径(根目录)D:\sw\Console\FileDownLoad\DownLoad\bin\Debug
             var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -100,9 +99,6 @@ namespace DownLoad
                 Thread.Sleep(1000);
                 Console.WriteLine("已删除:" + parentPath + @"\" + downloadName);
             }     
-            
-       
-
             Thread.Sleep(2000);
         }
 
